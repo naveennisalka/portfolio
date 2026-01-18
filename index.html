@@ -10,7 +10,9 @@
         integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
 
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./floating-nav.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="./nav-menu.js" defer></script>
 </head>
 
 <body>
@@ -23,27 +25,70 @@
         <div class="row row justify-content-center">
             <div class="main-con ">
 
+                <!-- Custom Navigation Bar -->
+                <nav class="custom-nav">
+                    <!-- Center Navigation Links (Desktop Only) -->
+                    <div class="nav-center-links">
+                        <a href="#hero" class="nav-link">Home</a>
+                        <a href="#about" class="nav-link">About</a>
+                        <a href="#myworks" class="nav-link">My Works</a>
+                        <a href="#workexperience" class="nav-link">Work Experience</a>
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </div>
 
-                <div class="container text-center align-items-center ">
-                    <ul class="menu-bar">
-                        <a href="#hero"><li>HOME</li></a>
-                        <a href="#about mt mb-5"><li>ABOUT</li></a>
-                        <a href="#myworks mt mb-5"><li>MY WORKS</li></a>
-                        <a href="#contact mt mb-5"><li>CONTACT</li></a>
-                        <li><a href="./src/Resume.pdf" download><button class="boton-elegante" 
-                                    data-aos-anchor-placement="bottom-bottom">Download CV</button></a></li>
-                    </ul>
-                </div>
+                    <!-- Right Section -->
+                    <div class="nav-right-section">
+                        <!-- Download CV Button -->
+                        <a href="./src/Resume.pdf" download class="nav-cv-btn">Download CV</a>
+
+
+                        <!-- GitHub Icon -->
+                        <a href="https://github.com/naveennisalka" target="_blank" class="nav-globe-btn">
+                            <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                                role="presentation" focusable="false">
+                                <path fill-rule="evenodd"
+                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                                </path>
+                            </svg>
+                        </a>
+
+                        <!-- User Menu with Dropdown -->
+                        <div class="menu-wrapper">
+                            <button type="button" class="nav-user-btn" id="userMenuBtn">
+                                <svg class="hamburger-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true" role="presentation" focusable="false">
+                                    <g fill="none" fill-rule="nonzero">
+                                        <path d="m2 16h28"></path>
+                                        <path d="m2 24h28"></path>
+                                        <path d="m2 8h28"></path>
+                                    </g>
+                                </svg>
+                                <img src="./src/me.png" alt="Profile" class="profile-icon">
+                            </button>
+                            <!-- Mobile Dropdown Menu -->
+                            <div class="mobile-dropdown" id="mobileDropdown">
+                                <a href="#hero" class="mobile-dropdown-item">Home</a>
+                                <a href="#about" class="mobile-dropdown-item">About</a>
+                                <a href="#myworks" class="mobile-dropdown-item">My Works</a>
+                                <a href="#workexperience" class="mobile-dropdown-item">Work Experience</a>
+                                <a href="#contact" class="mobile-dropdown-item">Contact</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
 
 
 
 
-                
+
+
+
+
 
                 <section id="hero" class="hero mt mb-5">
                     <div class="container">
-                        <br class="mt-5">
-                        <br class="mt-5"><br class="mt-5">
+
+
                         <img src="./src/me.png" class="me rounded  d-block mt-5 mb-3" alt="..." data-aos="fade-up"
                             data-aos-anchor-placement="bottom-bottom">
                         <h1 class="mt-4 pt-3" data-aos="fade-up">Hey, I’m Naveen Nisalka. <br>Dreamer & Designer</h1>
@@ -99,7 +144,8 @@
                                         style=" border-radius: 25px 25px 0 0;" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">RB website UI/UX</h5>
-                                        <p class="card-text">An immersive UI/UX concept designed for the Robot Battle website of UOK.</p>
+                                        <p class="card-text">An immersive UI/UX concept designed for the Robot Battle
+                                            website of UOK.</p>
                                         <div style="display: flex;">
                                             <button class="boton-elegante">View Site</button>
                                             <a href="https://github.com/naveennisalka">
@@ -120,7 +166,8 @@
                                         style=" border-radius: 25px 25px 0 0;" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">Flyer Design Project</h5>
-                                        <p class="card-text">A bold and creative flyer design project showcasing my skills in layout, typography, and visual storytelling.</p>
+                                        <p class="card-text">A bold and creative flyer design project showcasing my
+                                            skills in layout, typography, and visual storytelling.</p>
                                         <div style="display: flex;">
                                             <button class="boton-elegante">View Site</button>
                                             <a href="https://github.com/naveennisalka"><svg class="ms-1"
@@ -140,7 +187,8 @@
                                         style=" border-radius: 25px 25px 0 0;" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">LARANA</h5>
-                                        <p class="card-text">A dynamic and responsive website developed for Spa from Serbia using pure HTML, CSS, and JavaScript.</p>
+                                        <p class="card-text">A dynamic and responsive website developed for Spa from
+                                            Serbia using pure HTML, CSS, and JavaScript.</p>
                                         <div style="display: flex;">
                                             <button class="boton-elegante">View Site</button>
                                             <a href="https://github.com/naveennisalka"><svg class="ms-1"
@@ -162,7 +210,8 @@
                                         style=" border-radius: 25px 25px 0 0;" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">I am Fly</h5>
-                                        <p class="card-text">A sleek, modern NFT release website designed to showcase and drop limited-edition digital collectibles.</p>
+                                        <p class="card-text">A sleek, modern NFT release website designed to showcase
+                                            and drop limited-edition digital collectibles.</p>
                                         <div style="display: flex;">
                                             <button class="boton-elegante">View Site</button>
                                             <a href="https://github.com/naveennisalka">
@@ -414,7 +463,7 @@
                     <hr>
                     <br>
                     <h8 class="pb-3 pb-5">Copyright © 2025 Naveen Nisalka. All rights reserved</h8>
-                    
+
                 </footer>
 
 

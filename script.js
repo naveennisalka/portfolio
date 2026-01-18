@@ -113,3 +113,193 @@ $('[data-animate="true"]').each(function (i) {
     menu.classList.toggle("show");
   }
 
+
+// Hamburger Menu Toggle Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (hamburgerMenu \u0026\u0026 navLinks) {
+        hamburgerMenu.addEventListener('click', function() {
+            // Toggle active class on hamburger for animation
+            hamburgerMenu.classList.toggle('active');
+            
+            // Toggle active class on nav links for dropdown
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close dropdown when clicking on a link
+        const navItems = navLinks.querySelectorAll('a');
+        navItems.forEach(item =\u003e {
+            item.addEventListener('click', function() {
+                hamburgerMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInsideMenu = hamburgerMenu.contains(event.target) || navLinks.contains(event.target);
+            
+            if (!isClickInsideMenu \u0026\u0026 navLinks.classList.contains('active')) {
+                hamburgerMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    }
+});
+
+
+// Scroll-triggered Navbar (Hide on scroll down, show on scroll up)
+let lastScrollTop = 0;
+let scrollTimeout;
+const navbar = document.querySelector('.menu-bar');
+const scrollThreshold = 100; // px to scroll before hiding
+
+window.addEventListener('scroll', function() {
+    // Clear the timeout if it exists
+    clearTimeout(scrollTimeout);
+    
+    // Add a small delay to prevent too frequent updates
+    scrollTimeout = setTimeout(function() {
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Don't hide navbar when at the very top
+        if (currentScroll \u003c scrollThreshold) {
+            navbar.classList.remove('nav-hidden');
+            navbar.classList.add('nav-visible');
+            lastScrollTop = currentScroll;
+            return;
+        }
+        
+        if (currentScroll \u003e lastScrollTop) {
+            // Scrolling down - hide navbar
+            navbar.classList.add('nav-hidden');
+            navbar.classList.remove('nav-visible');
+        } else {
+            // Scrolling up - show navbar
+            navbar.classList.remove('nav-hidden');
+            navbar.classList.add('nav-visible');
+        }
+        
+        lastScrollTop = currentScroll \u003c= 0 ? 0 : currentScroll;
+    }, 10);
+}, false);
+
+// Floating Navbar Scroll Animation
+window.addEventListener('DOMContentLoaded', function() {
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.floating-navbar');
+    const scrollThreshold = 100;
+    
+    if (navbar) {
+        window.addEventListener('scroll', function() {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (currentScroll \u003c scrollThreshold) {
+                navbar.classList.remove('nav-hidden');
+                lastScrollTop = currentScroll;
+                return;
+            }
+            
+            if (currentScroll \u003e lastScrollTop) {
+                navbar.classList.add('nav-hidden');
+            } else {
+                navbar.classList.remove('nav-hidden');
+            }
+            
+            lastScrollTop = currentScroll \u003c= 0 ? 0 : currentScroll;
+        }, false);
+    }
+});
+
+// Mobile Navigation Toggle
+window.addEventListener('DOMContentLoaded', function() {
+    const navToggle = document.getElementById('navToggle');
+    const navItems = document.getElementById('navItems');
+    
+    if (navToggle && navItems) {
+        navToggle.addEventListener('click', function() {
+            navToggle.classList.toggle('active');
+            navItems.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        const links = navItems.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', function() {
+                navToggle.classList.remove('active');
+                navItems.classList.remove('active');
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!navToggle.contains(event.target) && !navItems.contains(event.target)) {
+                navToggle.classList.remove('active');
+                navItems.classList.remove('active');
+            }
+        });
+    }
+});
+
+
+// Custom Navigation Dropdown Menu
+document.addEventListener('DOMContentLoaded', function() {
+    const navMenuBtn = document.getElementById('navMenuBtn');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    
+    if (navMenuBtn && dropdownMenu) {
+        navMenuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navMenuBtn.classList.toggle('active');
+            dropdownMenu.classList.toggle('active');
+        });
+        
+        // Close dropdown when clicking a link
+        const dropdownItems = dropdownMenu.querySelectorAll('.dropdown-item');
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', function() {
+                navMenuBtn.classList.remove('active');
+                dropdownMenu.classList.remove('active');
+            });
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!navMenuBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                navMenuBtn.classList.remove('active');
+                dropdownMenu.classList.remove('active');
+            }
+        });
+    }
+});
+
+
+// Mobile Menu Dropdown Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const userMenuBtn = document.getElementById('userMenuBtn');
+    const mobileDropdown = document.getElementById('mobileDropdown');
+    
+    if (userMenuBtn && mobileDropdown) {
+        userMenuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            mobileDropdown.classList.toggle('active');
+        });
+        
+        // Close dropdown when clicking a link
+        const dropdownItems = mobileDropdown.querySelectorAll('.mobile-dropdown-item');
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', function() {
+                mobileDropdown.classList.remove('active');
+            });
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!userMenuBtn.contains(event.target) && !mobileDropdown.contains(event.target)) {
+                mobileDropdown.classList.remove('active');
+            }
+        });
+    }
+});

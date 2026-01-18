@@ -1,0 +1,250 @@
+/* Custom Navigation Bar */
+.custom-nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    border: 1px solid #ebebeb;
+    border-radius: 50px;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 0 4px 16px rgba(0, 0, 0, 0.08);
+    gap: 40px;
+}
+
+/* Center Navigation Links (Desktop) */
+.nav-center-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-link {
+    color: #222222;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 20px;
+    transition: background-color 0.2s ease;
+}
+
+.nav-link:hover {
+    background-color: #f7f7f7;
+}
+
+/* Right Section */
+.nav-right-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-left: auto;
+}
+
+.nav-cv-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    background: #000000;
+    text-decoration: none;
+    border-radius: 24px;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+}
+
+.nav-cv-btn:hover {
+    background-color: #1a1a1a;
+}
+
+.nav-globe-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.nav-globe-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: #000000;
+}
+
+.nav-globe-btn:hover {
+    background-color: #f7f7f7;
+}
+
+/* Menu Wrapper for Dropdown */
+.menu-wrapper {
+    position: relative;
+}
+
+.nav-user-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 5px 5px 5px 12px;
+    border: 1px solid #dddddd;
+    border-radius: 21px;
+    background: #ffffff;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+}
+
+.nav-user-btn:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+}
+
+.hamburger-icon {
+    display: block;
+    fill: none;
+    height: 16px;
+    width: 16px;
+    stroke: #222222;
+    stroke-width: 3;
+    overflow: visible;
+}
+
+.profile-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Mobile Dropdown (Hidden on Desktop) */
+.mobile-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    min-width: 150px;
+    max-width: 200px;
+    width: max-content;
+    display: none;
+}
+
+.mobile-dropdown.active {
+    display: block;
+    animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mobile-dropdown-item {
+    display: block;
+    padding: 12px 16px;
+    color: #222222;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+.mobile-dropdown-item:hover {
+    background-color: #f7f7f7;
+}
+
+.mobile-dropdown-item:first-child {
+    border-radius: 12px 12px 0 0;
+}
+
+.mobile-dropdown-item:last-child {
+    border-radius: 0 0 12px 12px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .custom-nav {
+        padding: 0 16px;
+        height: 56px;
+        justify-content: space-between;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        max-width: calc(100% - 30px);
+        gap: 16px;
+    }
+
+    /* Hide center links on mobile */
+    .nav-center-links {
+        display: none;
+    }
+
+    /* Show Download CV on mobile with black background */
+    .nav-cv-btn {
+        display: inline-block;
+        font-size: 13px;
+        padding: 8px 20px;
+        background: #000000;
+        color: #ffffff;
+    }
+
+    /* Menu on left, Download CV on right */
+    .nav-right-section {
+        order: 2;
+        margin-left: 0;
+        gap: 12px;
+    }
+
+    .menu-wrapper {
+        order: -1;
+    }
+
+    .nav-globe-btn {
+        display: none;
+    }
+
+    /* Fix dropdown positioning to prevent white space */
+    .mobile-dropdown {
+        right: auto;
+        left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .custom-nav {
+        padding: 0 16px;
+        top: 10px;
+        max-width: calc(100% - 20px);
+    }
+}
+
+/* Add padding to body to account for fixed nav */
+body {
+    padding-top: 100px;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 90px;
+    }
+}
+/* Smooth Scroll Behavior */
+html {
+    scroll-behavior: smooth;
+}
